@@ -4,12 +4,14 @@
   "workspaces": [
     "shell",
     "mfe-usuarios",
-    "shared"
+    "shared",
+    "mfe-login"
   ],
   "scripts": {
-    "dev": "concurrently \"npm:dev-shell\" \"npm:dev-usuarios\"",
+    "dev": "concurrently \"npm:dev-shell\" \"npm:dev-usuarios\" \"npm:dev-login\"",
     "dev-shell": "npm --workspace=shell run dev",
     "dev-usuarios": "npm --workspace=mfe-usuarios run dev",
+    "dev-login": "npm --workspace=mfe-login run dev",
     "install-all": "npm install --workspaces"
   },
   "devDependencies": {
