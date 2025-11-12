@@ -1,0 +1,21 @@
+{
+  "name": "el-deportivo",
+  "private": true,
+  "workspaces": [
+    "shell",
+    "mfe-usuarios",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev-shell\" \"npm:dev-usuarios\"",
+    "dev-shell": "npm --workspace=shell run dev",
+    "dev-usuarios": "npm --workspace=mfe-usuarios run dev",
+    "install-all": "npm install --workspaces"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^8.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  }
+}
