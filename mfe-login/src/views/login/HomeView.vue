@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
-import { useAuthStore } from '../../stores/authStore';
+import { userStore } from '../../stores/user';
 import { storeToRefs } from 'pinia';
 
-const store = useAuthStore();
+const store = userStore();
 const { user } = storeToRefs(store);
 
 const logout = () => {
