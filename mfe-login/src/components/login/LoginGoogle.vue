@@ -1,8 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-blue-600 text-white">
     <h1 class="text-3xl font-bold mb-6">Bienvenido a El Deportivo</h1>
-
-    <!-- Contenedor para el botón GSI -->
     <div id="googleSignInDiv"></div>
   </div>
 </template>
@@ -30,7 +28,6 @@ function decodeJwt(token) {
 
 // Callback que GSI ejecuta al login
 function handleCredentialResponse(response) {
-console.log("RESPOONSE:::::::",response)
 
   if (!response || !response.credential) {
     console.error("No se recibió token JWT");
@@ -48,6 +45,7 @@ console.log("RESPOONSE:::::::",response)
     name: decoded.name,
     email: decoded.email,
     picture: decoded.picture,
+    meta:  response
   });
 
   alert(`Bienvenido ${decoded.name}`);

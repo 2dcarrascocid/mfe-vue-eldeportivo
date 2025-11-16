@@ -8,4 +8,5 @@
 
 <script setup>
 import LoginGoogle from '@/components/login/LoginGoogle.vue';
+
 </script>
