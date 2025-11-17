@@ -1,16 +1,33 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-blue-600 text-white">
     <h1 class="text-3xl font-bold mb-6">Bienvenido a El Deportivo</h1>
+
     <div id="googleSignInDiv"></div>
+
+    <!-- Mensajes de estado -->
+    <p v-if="loginLocal.loading" class="mt-4">Iniciando sesión...</p>
+    <p v-if="loginLocal.error" class="mt-4 text-red-300">{{ loginLocal.error }}</p>
   </div>
 </template>
 
 <script setup>
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { userStore } from "../../stores/user";
 
-// Decodificar JWT sin librerías
+// IMPORTAMOS EL COMPOSABLE Y EL STORE LOCAL
+import { useLogin } from "@/composables/useLogin";
+import { useLoginStore } from "@/stores/login.store";
+
+const router = useRouter();
+
+// Acceso al composable de login (incluye store global + API)
+const { login } = useLogin();
+
+// Store local del login (loading / error)
+const loginLocal = useLoginStore();
+
+
+// Decode JWT SOLO para leer datos del Google Token antes del backend
 function decodeJwt(token) {
   try {
     const payload = token.split(".")[1];
@@ -26,39 +43,43 @@ function decodeJwt(token) {
   }
 }
 
-// Callback que GSI ejecuta al login
-function handleCredentialResponse(response) {
 
-  if (!response || !response.credential) {
-    console.error("No se recibió token JWT");
+// ====================================================
+// CALLBACK PRINCIPAL QUE GOOGLE DISPARA AL LOGIN
+// ====================================================
+async function handleCredentialResponse(response) {
+  const idToken = response?.credential;
+
+  if (!idToken) {
+    loginLocal.setError("No se recibió token JWT desde Google");
     return;
   }
 
-  const decoded = decodeJwt(response.credential);
+  loginLocal.startLoading();
 
-  if (!decoded) {
-    console.error("No se pudo decodificar JWT");
+  // Información preliminar del token Google (antes de backend)
+  const decoded = decodeJwt(idToken);
+  console.log("TOKEN GOOGLE DECODED:", decoded);
+
+  // LOGIN REAL → SE VA AL BACKEND
+  const ok = await login(idToken);
+
+  if (!ok) {
+    // El composable ya asignó error
     return;
   }
 
-  userStore.setUser({
-    name: decoded.name,
-    email: decoded.email,
-    picture: decoded.picture,
-    meta:  response
-  });
-
-  alert(`Bienvenido ${decoded.name}`);
-
-  // Redirigir a profile
-  router.push("/profile");
+  // LOGIN ÉXITO → REDIRECCIÓN INTERNA DEL MFE-LOGIN
+  router.push("/login/profile");
 }
 
-const router = useRouter();
 
+// ====================================================
+// Inicializar Google Identity Services
+// ====================================================
 onMounted(() => {
   const interval = setInterval(() => {
-    if (window.google && google.accounts && google.accounts.id) {
+    if (window.google && google.accounts?.id) {
       clearInterval(interval);
 
       google.accounts.id.initialize({
@@ -73,15 +94,11 @@ onMounted(() => {
         { theme: "filled_blue", size: "large" }
       );
 
-      // Solo prompt si quieres One Tap
-      google.accounts.id.prompt(); 
+      google.accounts.id.prompt();
     }
   }, 100);
 });
-
-
 </script>
 
 <style scoped>
-/* Opcional */
 </style>
