@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="fedcm-disable" content="true" />
     <!-- CSP para Google Identity Services -->
-    <meta http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src 'self' https://accounts.google.com https://ssl.gstatic.com https://accounts.gstatic.com;
-        style-src 'self' 'unsafe-inline' https://accounts.google.com https://accounts.gstatic.com;
-        style-src-elem 'self' 'unsafe-inline' https://accounts.google.com https://accounts.gstatic.com;
-        connect-src 'self' https://accounts.google.com https://ssl.gstatic.com https://accounts.gstatic.com;
-        frame-src https://accounts.google.com https://accounts.gstatic.com;
-        img-src 'self' data: https:;
-      "
-    />
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self' https://accounts.google.com https://ssl.gstatic.com https://accounts.gstatic.com;
+          style-src 'self' 'unsafe-inline' https://accounts.google.com https://accounts.gstatic.com;
+          style-src-elem 'self' 'unsafe-inline' https://accounts.google.com https://accounts.gstatic.com;
+          connect-src 'self' http://localhost:3000 https://accounts.google.com https://ssl.gstatic.com https://accounts.gstatic.com;
+          frame-src https://accounts.google.com https://accounts.gstatic.com;
+          img-src 'self' data: https:;
+        "
+  />
+
 
     <!-- Desactivar FedCM para evitar errores -->
     <meta name="fedcm-disable" content="true" />

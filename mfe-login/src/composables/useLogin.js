@@ -12,7 +12,7 @@ export function useLogin() {
       loginLocal.startLoading();
 
       const { data } = await loginWithGoogle(idToken);
-
+console.log("data::::::.",data)
       // Transformación antes de guardar
       const user = {
         id: data.user.id,
@@ -27,7 +27,8 @@ export function useLogin() {
 
       return true;
     } catch (error) {
-      loginLocal.setError("Error al iniciar sesión");
+      console.log("error::::", error)
+      loginLocal.setError(error);
       return false;
     }
   }

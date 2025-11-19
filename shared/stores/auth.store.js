@@ -14,6 +14,8 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     setSession({ user, token }) {
+      console.log(`output->user`,user)
+      console.log(`output->token`,token)
       this.user = user;
       this.token = token;
       this.isAuthenticated = true;
