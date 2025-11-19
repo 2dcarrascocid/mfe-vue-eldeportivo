@@ -3,10 +3,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "../views/login/LoginView.vue";
 import ProfileView from "../views/login/ProfileView.vue";
 import HomeView from "../views/login/HomeView.vue";
+import FacebookCallbackView from '../views/login/FacebookCallbackView.vue';
+import ProfileFacebook from '../views/login/ProfileFacebook.vue'
 
 const routes = [
   {
-    path: "/",            // ⬅️ DEBE empezar con "/"
+    path: "/login",            // ⬅️ DEBE empezar con "/"
     name: "Login",
     component: LoginView,
   },
@@ -19,6 +21,16 @@ const routes = [
     path: "/profile",     // ⬅️ DEBE empezar con "/"
     name: "ProfileLogin",
     component: ProfileView,
+  },
+  {
+    path: '/login/facebook/callback',
+    name: 'facebookCallback',
+    component: FacebookCallbackView,
+  },
+  {
+    path: "/profilefacebook",     // ⬅️ DEBE empezar con "/"
+    name: "ProfileLoginFacebook",
+    component: ProfileFacebook,
   },
 ];
 

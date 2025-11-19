@@ -1,0 +1,662 @@
+@source "../**/*.{vue,js,ts,html}";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .bg-custom {
+        @apply bg-white ;  
+        
+      }
+    .dark .bg-custom {
+        @apply
+        bg-gray-800
+    }
+    .fondo {
+        @apply bg-white ;  
+    }
+    .dark .fondo {
+        @apply bg-gray-900 text-white;
+      }
+    .card-bold {
+        @apply
+        font-bold
+        text-[0.625rem] 
+        ;  
+    }
+    .card-titulo {
+        @apply
+        p-2
+        font-bold
+        bg-gray-200
+        text-xs
+        border border-gray-400
+        ;  
+    }
+    .dark .card-titulo {
+        @apply bg-gray-700 border-gray-600 text-white;
+      }
+    .card-base {
+        @apply
+        text-[0.625rem] 
+        ;  
+    }
+    .dark .card-base {
+        @apply text-white;
+      }
+
+    /* Tablas cabecera/pie */
+    .cab_tab {
+        @apply
+            px-1 
+            py-1.5 
+            text-white
+            font-bold
+            bg-red-600
+        ;
+
+    }
+    .foot_tab {
+        @apply
+            px-1 
+            py-1.5 
+            font-bold
+            text-black
+            bg-gray-100
+        ;
+
+    }
+    .dark .foot_tab {
+        @apply bg-gray-700 text-white;
+      }
+    .foot {
+        @apply
+            bg-black 
+            text-white 
+            flex 
+            flex-nowrap 
+            items-center 
+            justify-between 
+            mt-auto
+            flex-shrink-0 
+            w-50
+        ;
+    }
+    .dark .foot {
+        @apply bg-gray-900 text-gray-200;
+      }
+
+
+
+    .h4-evento {
+        @apply
+        text-base
+        ;
+
+    }
+    .button-print {
+        @apply
+            mt-4
+            text-white
+            bg-red-600
+            hover:bg-red-500
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .titulos {
+        @apply
+        text-lg 
+        mb-3
+        xs:text-[1.5vw] sm:text-[1.0vw] md:text-[1.5vw] lg:text-[1.2vw] xl:text-[0.8vw] 2xl:text-[0.8vw]
+        ;
+    }
+    .dark .titulos {
+        @apply text-white;
+      }
+    .card-lista {
+        @apply
+        p-2 
+        bg-gray-200 
+        ;
+    }
+    .card-partidos {
+        @apply
+        p-2 
+        bg-gray-100
+        ;
+    }
+    .card-resumen {
+        @apply
+        p-2 
+        bg-gray-200
+        ;
+    }
+    .card-candidato {
+        @apply
+        p-2 
+        bg-green-50
+        ;
+    }
+    .card-subpacto {
+        @apply
+        p-2 
+        bg-gray-300
+        ;
+    }
+    .no-electo {
+        @apply
+        text-orange-600 
+        hover:text-orange-500
+        ; 
+    }
+    .electo {
+        @apply
+        text-black 
+        hover:text-black
+        text-xl
+        ; 
+    }
+    .dark .electo {
+        @apply  text-white ; 
+    }
+    .electo-empate {
+        @apply
+        text-blue-600 
+        hover:text-blue-500
+        ; 
+    }
+    .empate {
+        @apply
+        text-blue-600 
+        hover:text-blue-500
+        ; 
+    }
+    .home {
+        @apply
+        py-1
+        px-2
+
+        ;
+    }
+    .btn-menu {
+        @apply  
+            text-black        
+            bg-red-100 
+            py-2
+            px-2
+            rounded 
+        ;
+    }
+    .btn-menu:disabled {
+        @apply  
+            text-black        
+            bg-gray-400 
+            py-2
+            px-2
+            rounded 
+        ;
+        } 
+    .btn-menu.active {
+        @apply
+            text-white
+            bg-red-600
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-menu:hover {
+        @apply
+            text-white
+            bg-red-400
+            py-2
+            px-2
+            rounded 
+        ;
+    } 
+    .btn-menu-off {
+        @apply  
+            text-black        
+            bg-gray-400 
+            py-2
+            px-2
+            rounded 
+        ;
+    }
+    .dark .btn-menu-off {
+        @apply  bg-gray-200 ;
+      }   
+    .btn-menu-xs {
+        @apply          
+            bg-red-100 
+            py-2
+            px-2
+            rounded 
+            text-xs
+        ;
+    }
+    .btn-menu-xs.active {
+        @apply
+            text-white
+            bg-red-600
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-menu-xs:hover {
+        @apply
+            text-white
+            bg-red-400
+            py-2
+            px-2
+            rounded 
+        ;
+    }
+    .btn-menu-bol {
+        @apply          
+            bg-gray-100 
+            py-2
+            px-2
+            rounded 
+        ;
+    }
+    .btn-menu-bol.active {
+        @apply
+            text-white
+            bg-gray-600
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-menu-bol:hover {
+        @apply
+            text-white
+            bg-gray-400
+            py-2
+            px-2
+            rounded 
+        ;
+    }
+    .btn-izq {
+        @apply          
+            w-full
+            text-black
+            bg-red-100 
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-izq:hover {
+        @apply      
+
+            bg-red-400
+            py-2
+            px-2
+            rounded
+    }
+    .btn-izq.active {
+        @apply
+            text-white
+            bg-red-600
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-izq-bol {
+        @apply          
+            w-full
+            bg-gray-400
+            py-2
+            px-2
+            rounded
+        ;
+    }
+    .btn-izq-bol:hover {
+        @apply      
+            bg-gray-500
+            py-2
+            px-2
+            rounded
+            text-white
+            
+
+    }
+    .btn-izq-bol.active {
+        @apply      
+            bg-gray-500
+            py-2
+            px-2
+            rounded
+            text-white
+        ;
+    }
+    .btn-izq-peq {
+        @apply          
+            w-full
+            inline-flex 
+            bg-red-100 
+            border-0
+            focus:outline-none 
+            rounded 
+            text-base
+            md:mt-0
+            items-center 
+            justify-center
+            py-2
+            px-2
+        ;
+    }
+    .btn-izq-peq:hover {
+        @apply      
+            text-white
+            bg-red-400
+            text-base
+    }
+    .btn-izq-peq.active {
+        @apply
+            text-white
+            bg-red-600
+            py-2
+            px-2
+            shadow-lg
+            text-base
+        ;
+    }
+
+    .combo {
+        @apply 
+        w-full 
+        bg-white 
+        text-black 
+        border border-red-300 
+        hover:border-red-400 
+        px-4 
+        py-2 
+        pr-8 rounded shadow leading-tight focus:outline-none focus:border-red-300;
+
+    }
+    .combo:disabled {
+        @apply 
+        bg-gray-100 
+        text-gray-600 
+        border-gray-300 
+        cursor-not-allowed;
+    }
+
+    /* Para las opciones deshabilitadas dentro del select */
+    .combo option:disabled {
+        @apply 
+        bg-gray-100 
+        text-gray-600;
+    }
+    .dark .combo {
+        @apply bg-gray-800 text-white border-gray-600 focus:border-gray-500;
+      }
+    .label-combo {
+        @apply 
+            uppercase
+            text-[11px] 
+            text-gray-600 
+            font-bold
+        ;
+    }
+    .combo1 {
+        @apply
+            w-full
+            block appearance-none
+            bg-white 
+            border 
+            border-red-300 
+            hover:border-red-400 
+            px-4 
+            py-2 
+            pr-8 
+            rounded 
+            shadow 
+            leading-tight 
+            focus:outline-none 
+            focus:border-red-300
+        ;
+    }
+    .th {
+        @apply
+            py-1.5 
+            font-bold
+            text-right
+            text-[12px]
+        ;
+    }
+    .td {
+        @apply
+            py-1.5
+            text-right
+            text-[12px]
+         ;
+    }
+    .dark .td {
+        @apply text-white;
+      }
+
+    .th-acco {
+        @apply
+            px-1 
+            py-1.5 
+            font-bold
+            text-[14px]
+        ;
+    }
+
+
+    .icon-btn:hover {
+        @apply
+            bg-slate-200 
+            rounded-full
+            border-slate-300
+            border
+            text-5xl 
+            text-black
+            p-1
+            m-1
+        ;
+    }
+    .icon-btn {
+        @apply
+            text-5xl 
+            text-black
+            p-1
+            m-1
+        ;
+    }
+    .tr-foot {
+        @apply
+            border-t-2
+            table-auto 
+            border-collapse 
+            border 
+            border-gray-300
+            font-bold
+            bg-gray-300
+        ;
+    }
+
+    .text-titulo {
+        @apply
+        text-[18px]
+        ;
+    }
+    .text-subtitulo {
+        @apply
+        text-[14px]
+        ;
+    }
+    .dark .text-subtitulo {
+        @apply text-white;
+      }
+    .text-filtros {
+        @apply
+        text-[12px]
+        ;
+    }
+    .text-pie {
+        @apply
+        text-[11px]
+        ;
+    }
+    .bg-modal {
+        @apply
+        bg-white
+        ;
+    }
+     .btn-pagina {
+        @apply          
+            bg-red-100 
+            px-3 
+            py-1
+            rounded 
+            text-xs
+        ;
+    }
+    .dark .btn-pagina {
+        @apply text-black;
+      }
+    .btn-pagina.active {
+        @apply
+            text-white
+            bg-red-600
+            px-3 
+            py-1
+            rounded 
+            text-xs
+        ;
+    }
+    .btn-pagina:hover {
+        @apply
+            text-white
+            bg-red-400
+            px-3 
+            py-1
+            rounded 
+            text-xs
+        ;
+    }
+    .btn-pagina:disabled {
+        @apply opacity-50 cursor-not-allowed bg-red-100 text-gray-400;
+      }
+    
+    header,
+    footer{
+      flex-basis: 50px;      
+      /*ie10*/
+      -ms-flex-preferred-size: 50px;     
+      /*center align of links*/
+      justify-content: space-around; /*or space-between*/
+      /*ie10*/
+      display: -ms-flexbox;
+      -ms-flex-align: center; /*vertical*/
+      -ms-flex-line-pack: distribute; /*or justify*/
+    }
+    
+    footer {
+      /*ie10 short content*/
+      margin-top: auto; 
+    }
+    header a{
+      /*ie10*/ 
+      /*hack to trigger the layout for horizontal alignment distribute/justify*/
+      display: inline-block;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        
+    }
+    .dark header {
+        @apply bg-gray-900;
+      }
+    
+    /* fixed header and footer with scrollable main section */
+    .fixed-hf .main{
+      overflow-y: auto;
+    }
+    .float{
+        position:fixed;
+        bottom:50px;
+        z-index:100;
+    }
+    .f-container{
+        height: 100vh; /* for shorter content */
+        display: flex;
+        flex-direction: column;       
+        /*ie10*/
+        display: -ms-flexbox;
+        -ms-flex-direction: column;
+      }
+      
+      .main{
+        background-color: rgb(255, 255, 255);
+        flex: 1;
+        /*ie10*/
+        -ms-flex: 1 1 auto; 
+      }
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 15px; 
+        width: 100%;
+        margin: 5px; 
+        margin: 5px 0 5px 0;
+      }
+      .dark .card {
+        @apply bg-gray-800 text-white shadow-gray-700;
+      }
+      .dependent-card-1 {
+        border-left: 5px solid #fee2e2; /* Color para el primer nivel */
+        padding-left: 15px; /* Ajuste al espaciado reducido */
+      }
+      .dependent-card-2 {
+        border-left: 5px solid #2980b9; /* Color para el primer nivel */
+        padding-left: 15px; /* Ajuste al espaciado reducido */
+      }
+      .dependent-card-3 {
+        border-left: 5px solid #f39c12; /* Color para el tercer nivel */
+        padding-left: 15px;
+      }
+      .data-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px; /* Espaciado más pequeño */
+        font-size: 1rem;
+      }
+      .data-label {
+        font-weight: bold;
+        color: #dc2626;
+      }
+  
+      .data-value {
+        font-weight: normal;
+      }
+  
+      .data-label, .data-value {
+        flex: 1;
+      }
+  
+      .data-label {
+        text-align: left;
+      }
+  
+      .data-value {
+        text-align: right;
+      }
+  
+}

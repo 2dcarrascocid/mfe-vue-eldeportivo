@@ -1,6 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-blue-600 text-white">
-    <h1 class="text-3xl font-bold mb-6">Bienvenido a El Deportivo</h1>
+  <div >
 
     <div id="googleSignInDiv"></div>
 

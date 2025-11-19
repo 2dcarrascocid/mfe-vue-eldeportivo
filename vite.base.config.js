@@ -6,3 +6,14 @@ export const sharedAliases = {
   "@mfe-usuarios": path.resolve(__dirname, "mfe-usuarios/src"),
   "@shell": path.resolve(__dirname, "shell/src"),
 };
+
+export function baseConfig() {
+  return {
+    resolve: {
+      alias: sharedAliases,
+    },
+    css: {
+      postcss: path.resolve(__dirname, "postcss.config.cjs"),
+    },
+  };
+}

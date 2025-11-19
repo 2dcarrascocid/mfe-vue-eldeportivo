@@ -58,12 +58,12 @@ const router = useRouter();
 const { auth } = useAuth();
 
 function goToLogin() {
-  router.push("/login");
+  router.push("/");
 }
 
 function logout() {
   auth.logout();
-  router.push("/login");
+  router.push("/");
 }
 </script>
 
